@@ -5,27 +5,33 @@
 # Description:
 from dataclasses import dataclass
 
-from httpx import AsyncClient
+from httpx import Client
 
 
 @dataclass
 class XueQiuFunds:
-    client: AsyncClient | None = None
+    client: Client | None = None
 
     BASE_URL = "https://danjuanfunds.com"
 
     def __post_init__(self):
-        self.client = self.client or AsyncClient(
+        self.client = self.client or Client(
             base_url=self.BASE_URL,
             headers={
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
             },
         )
 
-    async def get_fund_detail(self, fund_code: str):
-        res = await self.client.get(f"/djapi/fund/detail/{fund_code}")
-        return res.json()
+    def get_fund_detail(self, fund_code: str):
+        return self.client.get(f"/djapi/fund/detail/{fund_code}").json()
 
-    async def get_fund_intro(self, fund_code: str):
-        res = await self.client.get(f"/djapi/fund/{fund_code}")
-        return res.json()
+    def get_fund_intro(self, fund_code: str):
+        return self.client.get(f"/djapi/fund/{fund_code}").json()
+
+    def get_fund_traces(self, symbol: str):
+        """
+        查询跟踪某个指数的基金（被动/指增）
+        :param symbol: SH000688 科创50
+        :return:
+        """
+        return self.client.get("/djapi/fundx/base/index/traces", params={"symbol": symbol}).json()

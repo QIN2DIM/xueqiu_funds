@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "xueqiu-funds"
-version = "0.0.1"
+version = "0.0.2"
 description = "❄️ 雪球基金 Python Client"
 license = "Apache-2.0"
 authors = ["QIN2DIM <yaoqinse@gmail.com>"]

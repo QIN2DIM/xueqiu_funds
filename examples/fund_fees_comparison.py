@@ -1,4 +1,3 @@
-import asyncio
 import json
 from pathlib import Path
 from typing import List, Tuple, Dict, Any
@@ -75,13 +74,13 @@ def dump_showcase(data: List[FeeType]):
             worksheet.column_dimensions[column_cells[0].column_letter].width = adjusted_width
 
 
-async def main():
+def main():
     xqf = XueQiuFunds()
     data: List[FeeType] = []
 
     for fd_code in fd_codes:
-        detail = await xqf.get_fund_detail(fd_code)
-        intro = await xqf.get_fund_intro(fd_code)
+        detail = xqf.get_fund_detail(fd_code)
+        intro = xqf.get_fund_intro(fd_code)
 
         if (fd_name := intro["data"]["fd_name"]) and (
             other_rate_table := detail["data"]["fund_rates"]["other_rate_table"]
@@ -102,4 +101,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
