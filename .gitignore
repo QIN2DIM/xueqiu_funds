@@ -160,3 +160,7 @@ cython_debug/
 .idea/
 tests/
 compile.py
+
+# ignore examples' cache
+examples/runtime/
+examples/fund_fees_comparison.xlsx
