@@ -1,16 +1,8 @@
-# 雪球基金 Python Client
-
-## Get started
-
-### Install package
-
-```shell
-pip install xueqiu_funds
-```
-
-### Quick start
-
-```python
+# -*- coding: utf-8 -*-
+# Time       : 2024/3/12 3:01
+# Author     : QIN2DIM
+# GitHub     : https://github.com/QIN2DIM
+# Description:
 import asyncio
 
 from xueqiu_funds import XueQiuFunds
@@ -33,8 +25,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-```
-
-
-
