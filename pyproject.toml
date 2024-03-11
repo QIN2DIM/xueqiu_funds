@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "xueqiu-funds"
+version = "0.0.1"
+description = "❄️ 雪球基金 Python Client"
+license = "Apache-2.0"
+authors = ["QIN2DIM <yaoqinse@gmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/QIN2DIM/xueqiu_funds"
+repository = "https://github.com/QIN2DIM/xueqiu_funds"
+documentation = "https://github.com/QIN2DIM/xueqiu_funds"
+keywords = ["xueqiu", "雪球", "雪球基金", "蛋卷基金", "xueqiu-funds", "snowball"]
+packages = [{ include = "xueqiu_funds", format = "sdist" }]
+classifiers = [
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Image Processing",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3",
+]
+
+[virtualenvs]
+# https://python-poetry.org/docs/configuration/#virtualenvsin-project
+# Create a `.venv` virtual environment in the project root
+in-project = true
+
+# https://python-poetry.org/docs/pyproject/#dependencies-and-dependency-groups
+[tool.poetry.dependencies]
+python = "^3.10"
+
+httpx = { version = "*", extras = ["http2"] }
+openpyxl = "*"
+pandas = "^2.2.1"
+pydantic = "^2.6.3"
+
+[tool.poetry.group.test.dependencies]
+# https://black.readthedocs.io/en/stable/
+black = { version = "*", extras = ["jupyter"] }
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+skip-magic-trailing-comma = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
