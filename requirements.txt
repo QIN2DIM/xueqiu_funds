@@ -1,1 +1,4 @@
 httpx[http2]~=0.27.0
+pydantic~=2.6.3
+pandas~=2.2.1
+openpyxl

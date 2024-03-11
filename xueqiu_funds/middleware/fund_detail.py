@@ -25,10 +25,14 @@ class Stock(BaseModel):
 
 class FundAchievement(BaseModel):
     fund_code: str = Field("", description="雪球基金代码", examples=["011613"])
-    fundsname: str = Field("", description="雪球基金名称", examples=["华夏上证科创板50成份ETF联接C"])
+    fundsname: str = Field(
+        "", description="雪球基金名称", examples=["华夏上证科创板50成份ETF联接C"]
+    )
     post_date: str = Field("", description="基金发布时间 %Y-%m-%d", examples=["2021-10-20"])
     cp_rate: float = Field(0.0, description="任期回报", examples=[-34.85])
-    resi_date: str | None = Field(None, description="基金卸任时间 %Y-%m-%d", examples=["2021-10-21"])
+    resi_date: str | None = Field(
+        None, description="基金卸任时间 %Y-%m-%d", examples=["2021-10-21"]
+    )
 
 
 class FundManager(BaseModel):

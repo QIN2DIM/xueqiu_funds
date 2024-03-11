@@ -5,5 +5,6 @@
 # Description:
 from .middleware.fund_detail import FundDetail
 from .middleware.fund_intro import FundIntro
+from .client import XueQiuFunds
 
-__all__ = ["FundDetail", "FundIntro"]
+__all__ = ["FundDetail", "FundIntro", "XueQiuFunds"]
