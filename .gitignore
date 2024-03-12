@@ -162,6 +162,6 @@ tests/
 compile.py
 
 # ignore examples' cache
-examples/quick_start/runtime/
-examples/quick_start/fund_fees_comparison.xlsx
+examples/**/runtime/
+examples/**/fund_fees_comparison.xlsx
 poetry.lock
